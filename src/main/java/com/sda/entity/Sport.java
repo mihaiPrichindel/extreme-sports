@@ -7,9 +7,9 @@ import java.util.Date;
 @Table(name = "sport")
 public class Sport {
 
-    @Column(name = "id")
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id_sport")
     private Long id;
 
     @Column(name = "sport_name")
@@ -25,7 +25,7 @@ public class Sport {
     private Date endDate;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "place_id")
+    @JoinColumn(name = "id_place")
     private Place place;
 
     public Sport() {

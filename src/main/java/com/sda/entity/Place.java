@@ -1,25 +1,32 @@
 package com.sda.entity;
 
 import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity(name = "Place")
 @Table(name = "place")
-public class Place {
+public class Sport {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column (name = "id_place")
     private Long id;
 
     @Column(name = "place_name")
     private String placeName;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "city_id")
+    @JoinColumn(name = "id_city")
     private City city;
 
-    public Place() {
+    @OneToMany(cascade = CascadeType.ALL,
+            mappedBy = "place", orphanRemoval = true)
+    private Set<Sport> places=new HashSet<Sport>();
+
+    public Sport() {
     }
 
-    public Place(String placeName) {
+    public Sport(String placeName) {
         this.placeName = placeName;
     }
 

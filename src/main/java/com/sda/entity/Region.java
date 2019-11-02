@@ -1,7 +1,5 @@
 package com.sda.entity;
 
-import org.hibernate.annotations.Cascade;
-
 import javax.persistence.*;
 import java.util.HashSet;
 import java.util.Set;
@@ -13,19 +11,19 @@ public class Region {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id")
+    @Column(name = "id_region")
     private Long id;
 
     @Column(name = "region_name")
     private String regionName;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "country_id")
+    @JoinColumn(name = "id_country")
     private Country country;
 
     @OneToMany(cascade = CascadeType.ALL,
             mappedBy = "region", orphanRemoval = true)
-    Set<City> cities = new HashSet<City>();
+    private Set<City> cities = new HashSet<City>();
 
     public Long getId() {
         return id;
@@ -49,6 +47,14 @@ public class Region {
 
     public void setCountry(Country country) {
         this.country = country;
+    }
+
+    public Set<City> getCities() {
+        return cities;
+    }
+
+    public void setCities(Set<City> cities) {
+        this.cities = cities;
     }
 
     @Override
@@ -76,7 +82,6 @@ public class Region {
         return "Region{" +
                 "id=" + id +
                 ", regionName='" + regionName + '\'' +
-                ", country=" + country +
                 '}';
     }
 }

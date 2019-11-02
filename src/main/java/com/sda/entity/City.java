@@ -9,13 +9,14 @@ import java.util.Set;
 public class City {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id_city")
     private Long id;
 
     @Column(name = "city_name")
     private String cityName;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "region_id")
+    @JoinColumn(name = "id_region")
     private Region region;
 
     @OneToMany(cascade = CascadeType.ALL,
