@@ -1,47 +1,35 @@
-import com.sda.entity.Sport;
-import com.sda.hibernate_utils.HibernateUtil;
-import org.hibernate.HibernateException;
-import org.hibernate.Session;
-import org.hibernate.SessionFactory;
-import org.hibernate.Transaction;
-import org.hibernate.query.Query;
+import com.sda.entity.*;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.logging.Logger;
+import java.time.LocalDate;
 
 public class Main {
 
-    private static final Logger logger = Logger.getLogger(Main.class.getName());
-    Session session;
-    Transaction tx;
+
 
     public static void main(String[] args) {
         System.out.println("heeey");
 
-    Main main = new Main();
-    main.findAll();
+        Place place = new Place();
+        City city = new City();
+        Region region = new Region();
+        Country country = new Country();
+
+    Crud crud = new Crud();
+    Crud.findAll().stream().forEach(System.out::println);
+
+        Sport createdSport = new Sport();
+        createdSport.setCost(5600D);
+        createdSport.setSportName("inchiriere bentley");
+        createdSport.setStartDate(LocalDate.of(2020, 03, 12));
+        createdSport.setEndDate(LocalDate.of(2023, 05, 14));
+        createdSport.getPlace(place.setPlaceName());
+        crud.create(createdSport);
+
     }
-    public List findAll() {
-        List<Sport> sports = new ArrayList<>();
-        try {
-            startOperation();
-            Query query = session.createQuery("FROM Sport");
-            sports = query.list();
-        } catch (HibernateException e) {
-            logger.severe("could not find any sports");
-        } finally {
-            if (session != null) {
-                session.close();
-            }
-        }
-        return sports;
-    }
-    private void startOperation() {
-        SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
-        session = sessionFactory.openSession();
-        tx = session.beginTransaction();
-    }
+
+
+
+
 
 }
 
