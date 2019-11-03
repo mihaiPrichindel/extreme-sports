@@ -1,7 +1,15 @@
+import com.sda.controller.SportController;
+
+
 public class Main {
 
-    public static  void main(String []args){
-        System.out.println("heeey");
+    private static SportController sportController;
+
+    public static void main(String[] args) {
+        sportController = new SportController();
+
+
+
     }
 }
 

@@ -1,7 +1,8 @@
 package com.sda.entity;
 
 import javax.persistence.*;
-import java.util.Date;
+import java.sql.Date;
+
 
 @Entity(name = "Sport")
 @Table(name = "sport")
@@ -110,7 +111,7 @@ public class Sport {
                 ", cost=" + cost +
                 ", startDate=" + startDate +
                 ", endDate=" + endDate +
-                ", place=" + place +
+                ", place =" + place +
                 '}';
     }
 }
