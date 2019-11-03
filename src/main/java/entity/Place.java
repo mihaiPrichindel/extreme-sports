@@ -1,18 +1,31 @@
 package entity;
 
+import com.sda.entity.Sport;
+
 import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity(name = "Place")
 @Table(name = "place")
 public class Place {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
     @Column(name = "place_name")
     private String placeName;
+
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn (name = "city_id")
     private City city;
+
+    @OneToMany(cascade = CascadeType.ALL,
+            mappedBy = "place", orphanRemoval = true)
+    private Set<Sport> sports = new HashSet<Sport>();
+
+
     public String getPlaceName() {
         return placeName;
     }
@@ -30,6 +43,7 @@ public class Place {
     public Long getId() {
         return id;
     }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

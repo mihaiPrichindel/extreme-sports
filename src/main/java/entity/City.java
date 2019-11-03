@@ -19,6 +19,8 @@ public class City {
     @JoinColumn(name = "region_id")
     private Region region;
 
+
+
     public City() {
     }
 
