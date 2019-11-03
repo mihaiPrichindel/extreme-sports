@@ -6,10 +6,8 @@ import com.sda.service.IPlaceDAO;
 import com.sda.service.IsportDAO;
 import com.sda.service.PlaceDAO;
 import com.sda.service.SportDAO;
-import org.hibernate.Session;
 
 import java.time.LocalDate;
-import java.util.Date;
 import java.util.List;
 import java.util.Scanner;
 
@@ -41,7 +39,8 @@ public class SportController {
 
     public void create (){
         Place place = placeService.findById(1L);
-        Sport sport = new Sport("ski", new Double(200), LocalDate.of(2019,1,11), LocalDate.of(2019,05,11), place);
+        Sport sport = new Sport("ski", new Double(200), LocalDate.of(2019, 10, 11),
+                LocalDate.of(2019,05,11), place);
 
         sportService.insert(sport);
     }
