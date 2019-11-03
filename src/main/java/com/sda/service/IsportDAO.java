@@ -12,5 +12,8 @@ public interface IsportDAO {
 
     void insert(Sport sport);
 
-    void update(Sport sport);
+    void update (Sport sport);
+
+    Sport findById(Long id);
+
 }
