@@ -1,0 +1,7 @@
+com\sda\entity\City.class
+Main.class
+com\sda\hibernate_utils\HibernateUtil.class
+com\sda\entity\Region.class
+com\sda\entity\Country.class
+com\sda\entity\Place.class
+com\sda\entity\Sport.class

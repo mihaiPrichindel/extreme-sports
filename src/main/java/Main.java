@@ -6,6 +6,7 @@ public class Main {
 
 
 
+
     public static void main(String[] args) {
         System.out.println("heeey");
 
@@ -22,7 +23,7 @@ public class Main {
         createdSport.setSportName("inchiriere bentley");
         createdSport.setStartDate(LocalDate.of(2020, 03, 12));
         createdSport.setEndDate(LocalDate.of(2023, 05, 14));
-        createdSport.getPlace(place.setPlaceName());
+
         crud.create(createdSport);
 
     }
