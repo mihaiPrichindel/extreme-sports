@@ -8,7 +8,7 @@ import org.hibernate.Session;
 import java.util.List;
 import java.util.Scanner;
 
-public class Main {
+public class SportMain {
     private static SportController sportController;
 
     public static void main(String[] args) {

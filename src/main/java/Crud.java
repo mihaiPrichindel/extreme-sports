@@ -12,7 +12,7 @@ import java.util.logging.Logger;
 
 public class Crud {
 
-    private static final Logger logger = Logger.getLogger(Main.class.getName());
+    private static final Logger logger = Logger.getLogger(SportMain.class.getName());
     private static Session session;
     private static Transaction tx;
 

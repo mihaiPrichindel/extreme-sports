@@ -29,10 +29,12 @@ public class Sport {
     public Sport() {
     }
 
-    public Sport(String sportName, Double cost, LocalDate startDate) {
+    public Sport(String sportName, Double cost, LocalDate startDate, LocalDate endDate, Place place) {
         this.sportName = sportName;
         this.cost = cost;
         this.startDate = startDate;
+        this.endDate = endDate;
+        this.place = place;
     }
 
     public Long getId() {
