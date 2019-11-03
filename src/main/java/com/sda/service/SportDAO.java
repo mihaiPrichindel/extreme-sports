@@ -53,7 +53,11 @@ public class SportDAO implements IsportDAO {
 
     @Override
     public void update(Sport sport) {
-
+       session=HibernateUtil.getSessionFactory().openSession();
+       Transaction transaction=session.beginTransaction();
+       session.update(sport);
+       transaction.commit();
+       session.close();
     }
 
 
