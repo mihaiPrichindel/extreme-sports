@@ -1,6 +1,8 @@
 package com.sda.entity;
 
 import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity(name = "Place")
 @Table(name = "place")
@@ -15,6 +17,11 @@ public class Place {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "city_id")
     private City city;
+
+    @OneToMany(cascade = CascadeType.ALL,
+            mappedBy = "place", orphanRemoval = true)
+    private Set<Sport> places = new HashSet<Sport>();
+
 
     public Place() {
     }
@@ -45,6 +52,15 @@ public class Place {
 
     public void setCity(City city) {
         this.city = city;
+    }
+
+
+    public Set<Sport> getPlaces() {
+        return places;
+    }
+
+    public void setPlaces(Set<Sport> places) {
+        this.places = places;
     }
 
     @Override
