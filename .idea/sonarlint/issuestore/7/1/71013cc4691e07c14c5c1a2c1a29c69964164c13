@@ -1,11 +1,11 @@
 
-msquid:S3252"JUse static access with "org.hibernate.cfg.AvailableSettings" for "DRIVER".(ò¥‡íýÿÿÿÿ8³¡®áâ-
-nsquid:S3252"KUse static access with "org.hibernate.cfg.AvailableSettings" for "DIALECT".(á¶ Óýÿÿÿÿ8³¡®áâ-
-isquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(ÅèÍ¦8­…§ââ-
+nsquid:S3252"KUse static access with "org.hibernate.cfg.AvailableSettings" for "DIALECT".(á¶ Óýÿÿÿÿ8°Éˆã-
+isquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(ÅèÍ¦8°Éˆã-
+squid:S3252"aUse static access with "org.hibernate.cfg.AvailableSettings" for "CURRENT_SESSION_CONTEXT_CLASS".(ßÓÿ­8°Éˆã-
+fsquid:S3252"HUse static access with "org.hibernate.cfg.AvailableSettings" for "USER".(è©šŒ8°Éˆã-
+jsquid:S3252"GUse static access with "org.hibernate.cfg.AvailableSettings" for "URL".( ÑŒ¸ÿÿÿÿÿ8°Éˆã-
+]squid:S1118":Add a private constructor to hide the implicit public one.(‡Œïøþÿÿÿÿ8°Éˆã-
+jsquid:S3252"LUse static access with "org.hibernate.cfg.AvailableSettings" for "SHOW_SQL".(÷µ•–8°Éˆã-
 Fsquid:S1148)"#Use a logger to log this exception.(€ÉÔ…ýÿÿÿÿ8³¡®áâ-
-fsquid:S3252"HUse static access with "org.hibernate.cfg.AvailableSettings" for "USER".(è©šŒ8³¡®áâ-
-squid:S3252"aUse static access with "org.hibernate.cfg.AvailableSettings" for "CURRENT_SESSION_CONTEXT_CLASS".(ßÓÿ­8³¡®áâ-
-jsquid:S3252"LUse static access with "org.hibernate.cfg.AvailableSettings" for "SHOW_SQL".(÷µ•–8³¡®áâ-
-]squid:S1118":Add a private constructor to hide the implicit public one.(‡Œïøþÿÿÿÿ8³¡®áâ-
-fsquid:S3252"HUse static access with "org.hibernate.cfg.AvailableSettings" for "PASS".(›Áìë8³¡®áâ-
-jsquid:S3252"GUse static access with "org.hibernate.cfg.AvailableSettings" for "URL".( ÑŒ¸ÿÿÿÿÿ8³¡®áâ-
+fsquid:S3252"HUse static access with "org.hibernate.cfg.AvailableSettings" for "PASS".(›Áìë8°Éˆã-
+msquid:S3252"JUse static access with "org.hibernate.cfg.AvailableSettings" for "DRIVER".(ò¥‡íýÿÿÿÿ8°Éˆã-

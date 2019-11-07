@@ -42,6 +42,11 @@ public class Place {
     public Place() {
     }
 
+    public Place(String placeName, City city) {
+        this.placeName = placeName;
+        this.city = city;
+    }
+
     public Long getId() {
         return id;
     }
