@@ -1,4 +1,4 @@
-package com.sda.service;
+package com.sda.service.sport;
 
 import com.sda.entity.Sport;
 

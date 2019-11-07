@@ -2,7 +2,12 @@ package com.sda.controller;
 
 import com.sda.entity.City;
 import com.sda.entity.Place;
-import com.sda.service.*;
+import com.sda.service.city.CityDAO;
+import com.sda.service.city.ICityDAO;
+import com.sda.service.place.IPlaceDAO;
+import com.sda.service.place.PlaceDAO;
+import com.sda.service.sport.IsportDAO;
+import com.sda.service.sport.SportDAO;
 
 import java.util.List;
 import java.util.Scanner;
@@ -20,14 +25,14 @@ public class PlaceController {
         }
         if (input.equalsIgnoreCase("create")) {
 
-            Scanner inputCreate = new Scanner(System.in);
+            Scanner inputId = new Scanner(System.in);
+            Scanner inputPlaceName = new Scanner(System.in);
             System.out.println("Enter city ID: ");
-            Long cityId = inputCreate.nextLong();
-
+            Long cityId = inputId.nextLong();
+            System.out.println();
             System.out.println("Enter new place name: ");
-            String newPlaceName = inputCreate.nextLine();
-
-
+            String newPlaceName = inputPlaceName.nextLine();
+            System.out.println();
             create(cityId, newPlaceName);
         }
         if (input.equalsIgnoreCase("delete")) {

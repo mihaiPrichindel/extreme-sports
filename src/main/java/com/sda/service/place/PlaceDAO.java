@@ -1,4 +1,4 @@
-package com.sda.service;
+package com.sda.service.place;
 
 import com.sda.entity.Place;
 import com.sda.hibernate_utils.HibernateUtil;

@@ -1,6 +1,5 @@
-package com.sda.service;
+package com.sda.service.sport;
 
-import com.sda.entity.Place;
 import com.sda.entity.Sport;
 import com.sda.hibernate_utils.HibernateUtil;
 import org.hibernate.Session;

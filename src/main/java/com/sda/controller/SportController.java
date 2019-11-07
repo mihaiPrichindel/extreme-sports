@@ -2,14 +2,12 @@ package com.sda.controller;
 
 import com.sda.entity.Place;
 import com.sda.entity.Sport;
-import com.sda.service.IPlaceDAO;
-import com.sda.service.IsportDAO;
-import com.sda.service.PlaceDAO;
-import com.sda.service.SportDAO;
-import org.hibernate.Session;
+import com.sda.service.place.IPlaceDAO;
+import com.sda.service.sport.IsportDAO;
+import com.sda.service.place.PlaceDAO;
+import com.sda.service.sport.SportDAO;
 
 import java.time.LocalDate;
-import java.util.Date;
 import java.util.List;
 import java.util.Scanner;
 
