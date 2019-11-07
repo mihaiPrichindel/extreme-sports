@@ -2,48 +2,52 @@ package com.sda.controller;
 
 import com.sda.entity.City;
 import com.sda.entity.Place;
+import com.sda.entity.Region;
 import com.sda.service.city.CityDAO;
 import com.sda.service.city.ICityDAO;
 import com.sda.service.place.IPlaceDAO;
 import com.sda.service.place.PlaceDAO;
+import com.sda.service.region.IRegionDAO;
+import com.sda.service.region.RegionDAO;
 import com.sda.service.sport.IsportDAO;
 import com.sda.service.sport.SportDAO;
 
 import java.util.List;
 import java.util.Scanner;
 
-public class PlaceController {
+public class CityController {
 
     private static IsportDAO sportService = new SportDAO();
     private static IPlaceDAO placeService = new PlaceDAO();
     private static ICityDAO cityService = new CityDAO();
+    private static IRegionDAO regionService = new RegionDAO();
 
     public void control(String input) {
 
         if (input.equalsIgnoreCase("findAll")) {
-            findAllPlaces();
+            findAllCities();
         }
         if (input.equalsIgnoreCase("create")) {
 
             Scanner inputId = new Scanner(System.in);
-            Scanner inputPlaceName = new Scanner(System.in);
-            System.out.println("Enter city ID: ");
+            Scanner inputCityName = new Scanner(System.in);
+            System.out.println("Enter region ID: ");
             Long cityId = inputId.nextLong();
             System.out.println();
-            System.out.println("Enter new place name: ");
-            String newPlaceName = inputPlaceName.nextLine();
+            System.out.println("Enter new city name: ");
+            String newCityName = inputCityName.nextLine();
             System.out.println();
-            create(cityId, newPlaceName);
+            create(cityId, newCityName);
         }
         if (input.equalsIgnoreCase("delete")) {
             Scanner scanner = new Scanner(System.in);
-            System.out.println("Enter the ID of the place you want to delete: ");
+            System.out.println("Enter the ID of the city you want to delete: ");
             Long longId = scanner.nextLong();
             delete(longId);
         }
         if (input.equalsIgnoreCase("update")) {
             Scanner scanner = new Scanner(System.in);
-            System.out.println("Enter Place id:");
+            System.out.println("Enter City id:");
             Long longId = scanner.nextLong();
             System.out.println("Enter City name:");
             String city = scanner.nextLine();
@@ -52,30 +56,33 @@ public class PlaceController {
 
     }
 
-    private void findAllPlaces() {
-        List<Place> allPlaces = placeService.findAll();
-        allPlaces.stream()
+    private void findAllCities() {
+        List<City> allCities = cityService.findAll();
+        allCities.stream()
                 .forEach(System.out::println);
     }
 
-    private void create(Long cityId, String newPlaceName) {
-        City city = cityService.findById(cityId);
-        Place place = new Place(newPlaceName, city);
-        placeService.insert(place);
+    private void create(Long regionId, String newCityName) {
+        Region region = regionService.findById(regionId);
+        City city = new City(newCityName, region);
+        cityService.insert(city);
     }
 
     public void update(Long longId, String name) {
         Scanner input = new Scanner(System.in);
-        Place place = placeService.findById(longId);
+        City city = cityService.findById(longId);
         name = input.nextLine();
-        place.setPlaceName(name);
-        placeService.update(place);
+        city.setCityName(name);
+        cityService.update(city);
     }
 
     public void delete(Long longId) {
 
-        Place place = placeService.findById(longId);
-        String output = placeService.delete(place);
+        City city = cityService.findById(longId);
+        String output = cityService.delete(city);
         System.out.println(output);
     }
 }
+
+
+

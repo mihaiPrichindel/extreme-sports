@@ -1,58 +1,59 @@
-package com.sda.service.city;
+package com.sda.service.country;
 
 import com.sda.entity.City;
+import com.sda.entity.Country;
 import com.sda.hibernate_utils.HibernateUtil;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
 import java.util.List;
 
-public class CityDAO implements ICityDAO {
+public class CountryDAO implements ICountryDAO {
 
     Session session;
     Transaction tx;
 
     @Override
-    public List<City> findAll() {
+    public List<Country> findAll() {
         session = HibernateUtil.getSessionFactory().openSession();
-        List<City> allCities = session.createQuery("FROM City", City.class).getResultList();
+        List<Country> allCountries = session.createQuery("FROM Country", Country.class).getResultList();
         session.close();
-        return allCities;
+        return allCountries;
     }
 
     @Override
-    public City findById(Long id) {
+    public Country findById(Long id) {
         session = HibernateUtil.getSessionFactory().openSession();
-        City city = session.find(City.class, id);
+        Country country = session.find(Country.class, id);
         session.close();
-        return city;
+        return country;
     }
 
     @Override
-    public void insert(City city) {
+    public void insert(Country country) {
         session = HibernateUtil.getSessionFactory().openSession();
         tx = session.beginTransaction();
-        session.save(city);
+        session.save(country);
         tx.commit();
         session.close();
     }
 
     @Override
-    public void update(City city) {
+    public void update(Country country) {
         session = HibernateUtil.getSessionFactory().openSession();
         tx = session.beginTransaction();
-        session.update(city);
+        session.update(country);
         tx.commit();
         session.close();
     }
 
     @Override
-    public String delete(City city) {
+    public String delete(Country country) {
         session = HibernateUtil.getSessionFactory().openSession();
         tx = session.beginTransaction();
-        session.delete(city);
+        session.delete(country);
         tx.commit();
         session.close();
-        return "City deleted!";
+        return "Country deleted!";
     }
 }

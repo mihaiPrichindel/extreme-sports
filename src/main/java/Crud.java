@@ -1,3 +1,4 @@
+import com.sda.client.SportMain;
 import com.sda.entity.Sport;
 import com.sda.hibernate_utils.HibernateUtil;
 import org.hibernate.HibernateException;

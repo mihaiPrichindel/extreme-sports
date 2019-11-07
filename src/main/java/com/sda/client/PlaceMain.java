@@ -1,16 +1,20 @@
-import com.sda.controller.SportController;
+package com.sda.client;
+
+import com.sda.controller.PlaceController;
 
 import java.util.Scanner;
 
-public class SportMain {
-    private static SportController sportController;
+public class PlaceMain {
+
+
+    private static PlaceController placeController;
 
     public static void main(String[] args) {
-        sportController = new SportController();
+        placeController = new PlaceController();
         String input = null;
-        while(!"stop".equalsIgnoreCase(input)) {
+        while (!"stop".equalsIgnoreCase(input)) {
             input = displayOptions();
-            sportController.control(input);
+            placeController.control(input);
         }
     }
 
@@ -19,8 +23,6 @@ public class SportMain {
         Scanner scanner = new Scanner(System.in);
         return scanner.next();
     }
-
-
 
 }
 

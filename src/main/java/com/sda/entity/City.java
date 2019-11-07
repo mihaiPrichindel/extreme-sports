@@ -29,6 +29,9 @@ public class City {
     public City() {
     }
 
+    public City(String newCityName, Region region) {
+    }
+
     public long getId() {
         return id;
     }

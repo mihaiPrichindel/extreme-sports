@@ -1,18 +1,19 @@
-import com.sda.controller.PlaceController;
+package com.sda.client;
+
+import com.sda.controller.CityController;
 
 import java.util.Scanner;
 
-public class PlaceMain {
+public class CityMain {
 
-
-    private static PlaceController placeController;
+    private static CityController cityController;
 
     public static void main(String[] args) {
-        placeController = new PlaceController();
+        cityController = new CityController();
         String input = null;
         while (!"stop".equalsIgnoreCase(input)) {
             input = displayOptions();
-            placeController.control(input);
+            cityController.control(input);
         }
     }
 
@@ -23,4 +24,3 @@ public class PlaceMain {
     }
 
 }
-

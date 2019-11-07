@@ -26,6 +26,9 @@ public class Region {
     public Region() {
     }
 
+    public Region(String newRegionName, Country country) {
+    }
+
     public Long getId() {
         return id;
     }
