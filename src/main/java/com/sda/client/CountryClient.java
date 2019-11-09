@@ -4,11 +4,11 @@ import com.sda.controller.CountryController;
 
 import java.util.Scanner;
 
-public class CountryMain {
+public class CountryClient {
 
     private static CountryController countryController;
 
-    public static void main(String[] args) {
+    public static void countryClient() {
         countryController = new CountryController();
         String input = null;
         while (!"stop".equalsIgnoreCase(input)) {
@@ -18,9 +18,13 @@ public class CountryMain {
     }
 
     private static String displayOptions() {
-        System.out.println("Choose between: create, findAll, update, delete");
+        System.out.println("Choose between: create, findAll, update, delete, go back");
         Scanner scanner = new Scanner(System.in);
-        return scanner.next();
+        String selection = scanner.nextLine();
+        if (selection.equalsIgnoreCase("go back")) {
+            ExtremeSportsClient.ExtremeSportsClient();
+        }
+        return selection;
     }
 
 }

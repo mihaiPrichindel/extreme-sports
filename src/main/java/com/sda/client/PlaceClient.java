@@ -4,12 +4,12 @@ import com.sda.controller.PlaceController;
 
 import java.util.Scanner;
 
-public class PlaceMain {
+public class PlaceClient {
 
 
     private static PlaceController placeController;
 
-    public static void main(String[] args) {
+    public static void placeClient() {
         placeController = new PlaceController();
         String input = null;
         while (!"stop".equalsIgnoreCase(input)) {
@@ -19,9 +19,13 @@ public class PlaceMain {
     }
 
     private static String displayOptions() {
-        System.out.println("Choose between: create, findAll, update, delete");
+        System.out.println("Choose between: create, findAll, update, delete, go back");
         Scanner scanner = new Scanner(System.in);
-        return scanner.next();
+        String selection = scanner.nextLine();
+        if (selection.equalsIgnoreCase("go back")) {
+            ExtremeSportsClient.ExtremeSportsClient();
+        }
+        return selection;
     }
 
 }

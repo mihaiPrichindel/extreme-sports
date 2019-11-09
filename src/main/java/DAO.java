@@ -1,4 +1,4 @@
-import com.sda.client.SportMain;
+import com.sda.client.SportClient;
 import com.sda.entity.Sport;
 import com.sda.hibernate_utils.HibernateUtil;
 import org.hibernate.HibernateException;
@@ -11,9 +11,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Logger;
 
-public class Crud {
+public class DAO {
 
-    private static final Logger logger = Logger.getLogger(SportMain.class.getName());
+    private static final Logger logger = Logger.getLogger(SportClient.class.getName());
     private static Session session;
     private static Transaction tx;
 

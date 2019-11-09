@@ -4,10 +4,10 @@ import com.sda.controller.SportController;
 
 import java.util.Scanner;
 
-public class SportMain {
+public class SportClient {
     private static SportController sportController;
 
-    public static void main(String[] args) {
+    public static void sportClient() {
         sportController = new SportController();
         String input = null;
         while(!"stop".equalsIgnoreCase(input)) {
@@ -17,9 +17,13 @@ public class SportMain {
     }
 
     private static String displayOptions() {
-        System.out.println("Choose between: create, findAll, update, delete");
+        System.out.println("Choose between: create, findAll, update, delete, go back");
         Scanner scanner = new Scanner(System.in);
-        return scanner.next();
+        String selection = scanner.nextLine();
+        if (selection.equalsIgnoreCase("go back")) {
+            ExtremeSportsClient.ExtremeSportsClient();
+        }
+        return selection;
     }
 
 
