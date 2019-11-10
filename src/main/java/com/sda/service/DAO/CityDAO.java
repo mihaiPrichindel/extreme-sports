@@ -1,38 +1,38 @@
-package com.sda.service;
+package com.sda.service.DAO;
 
-import com.sda.entity.Place;
-import com.sda.entity.Sport;
+import com.sda.entity.City;
 import com.sda.hibernate_utils.HibernateUtil;
+import com.sda.service.I_DAO.ICityDAO;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
 import java.util.List;
 
-public class SportDAO implements IsportDAO {
+public class CityDAO implements ICityDAO {
     Session session;
 
     @Override
-    public List<Sport> findAll() {
-        session = HibernateUtil.getSessionFactory().openSession();
-        List<Sport> sports = session.createQuery("from Sport", Sport.class).getResultList();
+    public City findById(Long id) {
+        Session session = HibernateUtil.getSessionFactory().openSession();
+        City city = session.find(City.class, id);
         session.close();
-        return sports;
+        return city;
     }
 
     @Override
-    public Sport findById(Long id) {
+    public List<City> findAll() {
         session = HibernateUtil.getSessionFactory().openSession();
-        Sport sport = session.find(Sport.class, id);
+        List<City> cities = session.createQuery("from City", City.class).getResultList();
         session.close();
-        return sport;
+        return cities;
     }
 
     @Override
-    public String delete(Sport sport) {
+    public String delete(City city) {
         try {
             session = HibernateUtil.getSessionFactory().openSession();
             Transaction transaction = session.beginTransaction();
-            session.delete(sport);
+            session.delete(city);
             transaction.commit();
             session.close();
             return "Success";
@@ -43,22 +43,20 @@ public class SportDAO implements IsportDAO {
     }
 
     @Override
-    public void insert(Sport sport) {
+    public void insert(City city) {
         session = HibernateUtil.getSessionFactory().openSession();
         Transaction transaction = session.beginTransaction();
-        session.save(sport);
+        session.save(city);
         transaction.commit();
         session.close();
     }
 
     @Override
-    public void update(Sport sport) {
-        session = HibernateUtil.getSessionFactory().openSession();
-        Transaction transaction = session.beginTransaction();
-        session.update(sport);
+    public void update(City city) {
+        session=HibernateUtil.getSessionFactory().openSession();
+        Transaction transaction=session.beginTransaction();
+        session.update(city);
         transaction.commit();
         session.close();
     }
-
-
 }
