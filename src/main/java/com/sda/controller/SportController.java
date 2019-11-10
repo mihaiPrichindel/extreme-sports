@@ -3,8 +3,8 @@ package com.sda.controller;
 import com.sda.entity.Place;
 import com.sda.entity.Sport;
 import com.sda.service.place.IPlaceDAO;
-import com.sda.service.sport.IsportDAO;
 import com.sda.service.place.PlaceDAO;
+import com.sda.service.sport.IsportDAO;
 import com.sda.service.sport.SportDAO;
 
 import java.time.LocalDate;
@@ -40,13 +40,13 @@ public class SportController {
         }
     }
 
-    private void update(Long longId, Double cost) {
+    public void update(Long longId, Double cost) {
         Sport sport= sportService.findById(longId);
         sport.setCost(cost);
         sportService.update(sport);
     }
 
-    private void findAllSports() {
+    public void findAllSports() {
         List<Sport> allSports = sportService.findAll();
         allSports.stream()
                 .forEach(System.out::println);

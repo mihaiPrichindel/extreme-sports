@@ -52,13 +52,13 @@ public class PlaceController {
 
     }
 
-    private void findAllPlaces() {
+    public void findAllPlaces() {
         List<Place> allPlaces = placeService.findAll();
         allPlaces.stream()
                 .forEach(System.out::println);
     }
 
-    private void create(Long cityId, String newPlaceName) {
+    public void create(Long cityId, String newPlaceName) {
         City city = cityService.findById(cityId);
         Place place = new Place(newPlaceName, city);
         placeService.insert(place);

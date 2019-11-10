@@ -1,5 +1,7 @@
 package com.sda.client;
 
+import com.sda.controller.SearchController;
+
 import java.util.Scanner;
 
 public class ExtremeSportsClient {
@@ -21,10 +23,10 @@ public class ExtremeSportsClient {
 
 
     private static String displayOptions() {
-        System.out.println("Choose between: Country, Region, City, Place, Sport");
+        System.out.println("Choose between: Country, Region, City, Place, Sport or Feeling lucky");
         System.out.println("If you wish to exit, press Stop.");
         Scanner scanner = new Scanner(System.in);
-        return scanner.next();
+        return scanner.nextLine();
     }
 
     public void control(String input) {
@@ -44,8 +46,13 @@ public class ExtremeSportsClient {
             PlaceClient.placeClient();
         }
 
-        if (input.equalsIgnoreCase("Place")) {
+        if (input.equalsIgnoreCase("Sport")) {
             SportClient.sportClient();
+        }
+
+        if (input.equalsIgnoreCase("Feeling lucky")) {
+            SearchController.feelingLucky();
+
         }
 
 

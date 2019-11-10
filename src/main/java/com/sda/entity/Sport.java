@@ -2,8 +2,6 @@ package com.sda.entity;
 
 import javax.persistence.*;
 import java.time.LocalDate;
-import java.util.HashSet;
-import java.util.Set;
 
 @Entity(name = "Sport")
 @Table(name = "sport")
@@ -15,10 +13,12 @@ public class Sport {
 
     @Column(name = "sport_name")
     private String sportName;
+
     @Column(name = "cost")
     private Double cost;
     @Column(name = "start_date")
     private LocalDate startDate;
+
     @Column(name = "end_date")
     private LocalDate endDate;
 

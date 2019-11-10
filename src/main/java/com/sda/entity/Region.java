@@ -86,7 +86,7 @@ public class Region {
         return "Region{" +
                 "id=" + id +
                 ", regionName='" + regionName + '\'' +
-                ", country=" + country +
+                //     ", country=" + country +
                 ", cities=" + cities +
                 '}';
     }

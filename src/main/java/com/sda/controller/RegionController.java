@@ -1,6 +1,5 @@
 package com.sda.controller;
 
-import com.sda.entity.City;
 import com.sda.entity.Country;
 import com.sda.entity.Region;
 import com.sda.service.city.CityDAO;
@@ -59,13 +58,13 @@ public class RegionController {
 
     }
 
-    private void findAllRegions() {
+    public void findAllRegions() {
         List<Region> allRegions = regionService.findAll();
         allRegions.stream()
                 .forEach(System.out::println);
     }
 
-    private void create(Long countryId, String newRegionName) {
+    public void create(Long countryId, String newRegionName) {
         Country country = countryService.findById(countryId);
         Region region = new Region(newRegionName, country);
         regionService.insert(region);

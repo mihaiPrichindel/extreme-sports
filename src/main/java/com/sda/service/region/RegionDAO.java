@@ -15,6 +15,9 @@ public class RegionDAO implements IRegionDAO {
     public List<Region> findAll() {
         session = HibernateUtil.getSessionFactory().openSession();
         List<Region> allRegions = session.createQuery("FROM Region", Region.class).getResultList();
+        for (Region r : allRegions) {
+            r.getCities().size();
+        }
         session.close();
         return allRegions;
     }
@@ -23,6 +26,7 @@ public class RegionDAO implements IRegionDAO {
     public Region findById(Long id) {
         session = HibernateUtil.getSessionFactory().openSession();
         Region region = session.find(Region.class, id);
+
         session.close();
         return region;
     }
