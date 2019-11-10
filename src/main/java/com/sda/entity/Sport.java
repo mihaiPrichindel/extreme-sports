@@ -32,11 +32,12 @@ public class Sport {
     public Sport() {
     }
 
-    public Sport(String sportName, Double cost, LocalDate startDate, LocalDate endDate){
+    public Sport(String sportName, Double cost, LocalDate startDate, LocalDate endDate,Place place){
         this.sportName = sportName;
         this.cost = cost;
         this.startDate = startDate;
         this.endDate = endDate;
+        this.place = place;
     }
 
     public String getSportName() {
@@ -111,7 +112,7 @@ public class Sport {
                 ", cost=" + cost +
                 ", startDate=" + startDate +
                 ", endDate=" + endDate +
-                ", place =" + place +
+            //    ", place =" + place +
                 '}';
     }
 }

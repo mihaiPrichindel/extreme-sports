@@ -20,6 +20,9 @@ public class Country {
             mappedBy = "country", orphanRemoval = true)
     private Set<Region> regions = new HashSet<Region>();
 
+    public Country() {
+    }
+
     public Country(String countryName) {
         this.countryName = countryName;
     }

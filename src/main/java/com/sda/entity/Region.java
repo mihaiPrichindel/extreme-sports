@@ -27,6 +27,14 @@ public class Region {
             mappedBy = "region", orphanRemoval = true)
     Set<City> cities = new HashSet<City>();
 
+    public Region() {
+    }
+
+    public Region(String regionName, Country country) {
+        this.regionName = regionName;
+        this.country = country;
+    }
+
     public Long getId() {
         return id;
     }
@@ -76,7 +84,7 @@ public class Region {
         return "Region{" +
                 "id=" + id +
                 ", regionName='" + regionName + '\'' +
-                ", country=" + country +
+           //     ", country=" + country +
                 '}';
     }
 }

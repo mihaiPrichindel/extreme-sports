@@ -1,10 +1,10 @@
-package com.sda.service;
+package com.sda.service.I_DAO;
 
 import com.sda.entity.Sport;
 
 import java.util.List;
 
-public interface IsportDAO {
+public interface ISportDAO {
 
     List<Sport> findAll();
 

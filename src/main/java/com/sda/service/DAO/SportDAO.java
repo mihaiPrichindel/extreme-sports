@@ -1,14 +1,14 @@
-package com.sda.service;
+package com.sda.service.DAO;
 
-import com.sda.entity.Place;
 import com.sda.entity.Sport;
 import com.sda.hibernate_utils.HibernateUtil;
+import com.sda.service.I_DAO.ISportDAO;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
 import java.util.List;
 
-public class SportDAO implements IsportDAO {
+public class SportDAO implements ISportDAO {
     Session session;
 
     @Override

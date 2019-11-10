@@ -1,8 +1,10 @@
+package com.sda.main;
+
 import com.sda.controller.SportController;
 
 import java.util.Scanner;
 
-public class Main {
+public class SportMain {
     private static SportController sportController;
 
     public static void main(String[] args) {
