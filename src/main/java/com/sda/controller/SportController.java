@@ -51,7 +51,7 @@ public class SportController {
                 .forEach(System.out::println);
     }
 
-    public void create (){
+    public void create() {
 
 
         System.out.println("Enter new Sport name: ");
