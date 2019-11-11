@@ -37,9 +37,13 @@ public class Sport {
         this.place = place;
     }
 
+    public Sport(String newSportName, Double newSportCost, LocalDate startDate, LocalDate endDate, Long placeId) {
+    }
+
     public Long getId() {
         return id;
     }
+
 
     public String getSportName() {
         return sportName;

@@ -1,6 +1,5 @@
 package com.sda.controller;
 
-import com.sda.entity.Place;
 import com.sda.entity.Sport;
 import com.sda.service.place.IPlaceDAO;
 import com.sda.service.place.PlaceDAO;
@@ -53,9 +52,30 @@ public class SportController {
     }
 
     public void create (){
-        Place place = placeService.findById(1L);
-        Sport sport = new Sport("ski", new Double(200), LocalDate.of(2019,1,11), LocalDate.of(2019,05,11), place);
-        sportService.insert(sport);
+
+
+        System.out.println("Enter new Sport name: ");
+        Scanner createSport = new Scanner(System.in);
+        String newSportName = createSport.nextLine();
+
+        System.out.println("Enter new Sport cost: ");
+        Double newSportCost = createSport.nextDouble();
+
+        Scanner createSportDates = new Scanner(System.in);
+        System.out.println("Start date? yyyy-mm-dd");
+        String start = createSportDates.nextLine();
+        LocalDate startDate = LocalDate.parse(start);
+
+        System.out.println("End date? yyyy-mm-dd");
+        String end = createSportDates.nextLine();
+        LocalDate endDate = LocalDate.parse(end);
+
+        System.out.println("For your new sport, enter place id: ");
+        Long longId = createSport.nextLong();
+
+
+        Sport createdSport = new Sport(newSportName, newSportCost, startDate, endDate, longId);
+        sportService.insert(createdSport);
     }
 
     public void delete(Long longId){

@@ -5,6 +5,7 @@ import com.sda.hibernate_utils.HibernateUtil;
 import org.hibernate.Session;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 
 public class SearchDAO implements ISearchDAO {
@@ -31,8 +32,12 @@ public class SearchDAO implements ISearchDAO {
             String placeName = (String) o[2];
 
             PlaceDTO searchResult = new PlaceDTO(name, sportPrice, placeName);
-            String theBestOffers = searchResult.toString();
-            System.out.println(theBestOffers);
+            //   String theBestOffers = searchResult.toString();
+            //   System.out.println(theBestOffers);
+
+            List<PlaceDTO> dtoList = new ArrayList<>();
+            dtoList.add(searchResult);
+            dtoList.forEach(System.out::println);
         }
         return bestOffers;
     }
