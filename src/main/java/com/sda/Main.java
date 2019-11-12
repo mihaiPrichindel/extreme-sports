@@ -1,11 +1,7 @@
-import com.sda.controller.SportController;
-import com.sda.entity.Sport;
-import com.sda.hibernate_utils.HibernateUtil;
-import com.sda.service.IsportDAO;
-import com.sda.service.SportDAO;
-import org.hibernate.Session;
+package com.sda;
 
-import java.util.List;
+import com.sda.controller.SportController;
+
 import java.util.Scanner;
 
 public class Main {
@@ -14,7 +10,7 @@ public class Main {
     public static void main(String[] args) {
         sportController = new SportController();
         String input = null;
-        while(!"stop".equalsIgnoreCase(input)) {
+        while (!"stop".equalsIgnoreCase(input)) {
             input = displayOptions();
             sportController.control(input);
         }
@@ -25,7 +21,6 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
         return scanner.next();
     }
-
 
 
 }

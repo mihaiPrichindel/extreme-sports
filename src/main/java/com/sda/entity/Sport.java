@@ -1,7 +1,7 @@
 package com.sda.entity;
 
 import javax.persistence.*;
-import java.util.Date;
+import java.time.LocalDate;
 
 @Entity(name = "Sport")
 @Table(name = "sport")
@@ -19,10 +19,10 @@ public class Sport {
     private Double cost;
 
     @Column(name = "start_date")
-    private Date startDate;
+    private LocalDate startDate;
 
     @Column(name = "end_date")
-    private Date endDate;
+    private LocalDate endDate;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "place_id")
@@ -31,11 +31,12 @@ public class Sport {
     public Sport() {
     }
 
-    public Sport(String sportName, Double cost, Date startDate, Date endDate){
+    public Sport(String sportName, Double cost, LocalDate startDate, LocalDate endDate, Place place) {
         this.sportName = sportName;
         this.cost = cost;
         this.startDate = startDate;
         this.endDate = endDate;
+        this.place = place;
     }
 
     public String getSportName() {
@@ -54,19 +55,19 @@ public class Sport {
         this.cost = cost;
     }
 
-    public Date getStartDate() {
+    public LocalDate getStartDate() {
         return startDate;
     }
 
-    public void setStartDate(Date startDate) {
+    public void setStartDate(LocalDate startDate) {
         this.startDate = startDate;
     }
 
-    public Date getEndDate() {
+    public LocalDate getEndDate() {
         return endDate;
     }
 
-    public void setEndDate(Date endDate) {
+    public void setEndDate(LocalDate endDate) {
         this.endDate = endDate;
     }
 
@@ -110,7 +111,7 @@ public class Sport {
                 ", cost=" + cost +
                 ", startDate=" + startDate +
                 ", endDate=" + endDate +
-                ", place=" + place +
+                // ", place=" + place +
                 '}';
     }
 }

@@ -1,5 +1,6 @@
 package com.sda.hibernate_utils;
 
+import com.sda.entity.*;
 import org.hibernate.SessionFactory;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.cfg.Configuration;
@@ -19,7 +20,7 @@ public class HibernateUtil {
                 // Hibernate settings equivalent to hibernate.cfg.xml's properties
                 Properties settings = new Properties();
                 settings.put(Environment.DRIVER, "com.mysql.cj.jdbc.Driver");
-                settings.put(Environment.URL, "jdbc:mysql://localhost:3306/extreme_sports?useSSL=false");
+                settings.put(Environment.URL, "jdbc:mysql://localhost:3306/extreme_sports?useSSL=false&serverTimezone=UTC");
                 settings.put(Environment.USER, "root");
                 settings.put(Environment.PASS, "root");
                 settings.put(Environment.DIALECT, "org.hibernate.dialect.MySQL5Dialect");
@@ -28,6 +29,11 @@ public class HibernateUtil {
                 //settings.put(Environment.HBM2DDL_AUTO, "create-drop");
                 configuration.setProperties(settings);
                 //configuration.addAnnotatedClass(Student.class);
+                configuration.addAnnotatedClass(Place.class);
+                configuration.addAnnotatedClass(Sport.class);
+                configuration.addAnnotatedClass(City.class);
+                configuration.addAnnotatedClass(Region.class);
+                configuration.addAnnotatedClass(Country.class);
                 ServiceRegistry serviceRegistry = new StandardServiceRegistryBuilder()
                         .applySettings(configuration.getProperties()).build();
                 sessionFactory = configuration.buildSessionFactory(serviceRegistry);

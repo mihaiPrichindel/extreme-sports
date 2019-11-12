@@ -20,14 +20,15 @@ public class Place {
 
     @OneToMany(cascade = CascadeType.ALL,
             mappedBy = "place", orphanRemoval = true)
-    private Set<Sport> places = new HashSet<Sport>();
+    private Set<Sport> sports = new HashSet<Sport>();
 
 
     public Place() {
     }
 
-    public Place(String placeName) {
+    public Place(String placeName, City city) {
         this.placeName = placeName;
+        this.city = city;
     }
 
     public Long getId() {
@@ -55,12 +56,12 @@ public class Place {
     }
 
 
-    public Set<Sport> getPlaces() {
-        return places;
+    public Set<Sport> getSports() {
+        return sports;
     }
 
-    public void setPlaces(Set<Sport> places) {
-        this.places = places;
+    public void setSports(Set<Sport> sports) {
+        this.sports = sports;
     }
 
     @Override
@@ -83,9 +84,6 @@ public class Place {
 
     @Override
     public String toString() {
-        return "Place{" +
-                "id=" + id +
-                ", placeName='" + placeName + '\'' +
-                '}';
+        return id + " | " + placeName;
     }
 }
