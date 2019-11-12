@@ -26,19 +26,27 @@ public class Sport {
     @JoinColumn (name = "place_id")
     private Place place;
 
+
     public Sport() {
     }
 
-    public Sport(String sportName, Double cost, LocalDate startDate, LocalDate endDate, Place place) {
+    /*public Sport(String sportName, Double cost, LocalDate startDate, LocalDate endDate, Place place) {
         this.sportName = sportName;
         this.cost = cost;
         this.startDate = startDate;
         this.endDate = endDate;
         this.place = place;
+    }*/
+
+    public Sport(String newSportName, Double newSportCost, LocalDate startDate, LocalDate endDate, Place place) {
+        this.sportName = newSportName;
+        this.cost = newSportCost;
+        this.startDate = startDate;
+        this.endDate = endDate;
+        this.place = place;
     }
 
-    public Sport(String newSportName, Double newSportCost, LocalDate startDate, LocalDate endDate, Long placeId) {
-    }
+    //public Sport(String newSportName, Double newSportCost, LocalDate startDate, LocalDate endDate, Long placeId) {}
 
     public Long getId() {
         return id;

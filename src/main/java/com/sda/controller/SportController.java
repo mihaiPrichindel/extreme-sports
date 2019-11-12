@@ -1,5 +1,6 @@
 package com.sda.controller;
 
+import com.sda.entity.Place;
 import com.sda.entity.Sport;
 import com.sda.service.place.IPlaceDAO;
 import com.sda.service.place.PlaceDAO;
@@ -22,7 +23,27 @@ public class SportController {
             findAllSports();
         }
         if(input.equalsIgnoreCase("create")){
-            create();
+
+            System.out.println("Enter new Sport name: ");
+            Scanner createSport = new Scanner(System.in);
+            String newSportName = createSport.nextLine();
+
+            System.out.println("Enter new Sport cost: ");
+            Double newSportCost = createSport.nextDouble();
+
+            Scanner createSportDates = new Scanner(System.in);
+            System.out.println("Start date? yyyy-mm-dd");
+            String start = createSportDates.nextLine();
+            LocalDate startDate = LocalDate.parse(start);
+
+            System.out.println("End date? yyyy-mm-dd");
+            String end = createSportDates.nextLine();
+            LocalDate endDate = LocalDate.parse(end);
+
+            System.out.println("For your new sport, enter place id: ");
+            Long longId = (createSport.nextLong() - 1);
+
+            create(newSportName, newSportCost, startDate, endDate, longId);
         }
         if(input.equalsIgnoreCase("delete")){
             Scanner scanner = new Scanner(System.in);
@@ -51,30 +72,13 @@ public class SportController {
                 .forEach(System.out::println);
     }
 
-    public void create() {
+    public void create(String sportName, Double score, LocalDate startDate, LocalDate endDate, Long longId) {
 
 
-        System.out.println("Enter new Sport name: ");
-        Scanner createSport = new Scanner(System.in);
-        String newSportName = createSport.nextLine();
-
-        System.out.println("Enter new Sport cost: ");
-        Double newSportCost = createSport.nextDouble();
-
-        Scanner createSportDates = new Scanner(System.in);
-        System.out.println("Start date? yyyy-mm-dd");
-        String start = createSportDates.nextLine();
-        LocalDate startDate = LocalDate.parse(start);
-
-        System.out.println("End date? yyyy-mm-dd");
-        String end = createSportDates.nextLine();
-        LocalDate endDate = LocalDate.parse(end);
-
-        System.out.println("For your new sport, enter place id: ");
-        Long longId = createSport.nextLong();
+        List<Place> placeId = placeService.findAll();
 
 
-        Sport createdSport = new Sport(newSportName, newSportCost, startDate, endDate, longId);
+        Sport createdSport = new Sport(sportName, score, startDate, endDate, placeId.get(longId.intValue()));
         sportService.insert(createdSport);
     }
 
